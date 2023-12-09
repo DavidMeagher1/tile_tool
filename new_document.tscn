@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cqvh2830whl6g"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer2" type="GridContainer" parent="VBoxContainer2/VBoxContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer2/MarginContainer/HBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "cell width:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer2/VBoxContainer2/MarginContainer/HBoxContainer/GridContainer2"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer2/VBoxContainer2/MarginContainer/HBoxContainer/GridContainer2"]
+layout_mode = 2
+text = "cell height:"
+
+[node name="LineEdit2" type="LineEdit" parent="VBoxContainer2/VBoxContainer2/MarginContainer/HBoxContainer/GridContainer2"]
+layout_mode = 2
+
+[node name="MenuButton" type="MenuButton" parent="VBoxContainer2/VBoxContainer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "px"
+flat = false
+item_count = 1
+popup/item_0/text = "px"
+popup/item_0/id = 0
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer2/MarginContainer2"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer2/VBoxContainer2/MarginContainer2/HBoxContainer2"]
+layout_mode = 2
+columns = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer2/VBoxContainer2/MarginContainer2/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "grid width:"
+
+[node name="LineEdit3" type="LineEdit" parent="VBoxContainer2/VBoxContainer2/MarginContainer2/HBoxContainer2/GridContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer2/VBoxContainer2/MarginContainer2/HBoxContainer2/GridContainer"]
+layout_mode = 2
+text = "grid height:"
+
+[node name="LineEdit4" type="LineEdit" parent="VBoxContainer2/VBoxContainer2/MarginContainer2/HBoxContainer2/GridContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/VBoxContainer2/MarginContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "cells"

@@ -1,0 +1,151 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbr730r7kk0w6"]
+
+[ext_resource type="Texture2D" uid="uid://dag6kxtm4lerj" path="res://icon.svg" id="1_avsg4"]
+[ext_resource type="Script" path="res://TileMap.gd" id="2_smj5p"]
+[ext_resource type="Script" path="res://File.gd" id="3_avpk7"]
+[ext_resource type="Script" path="res://MenuBar.gd" id="3_aw7mf"]
+[ext_resource type="PackedScene" uid="uid://cqvh2830whl6g" path="res://new_document.tscn" id="4_ir1qj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6pq8u"]
+texture = ExtResource("1_avsg4")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_oixvl"]
+sources/0 = SubResource("TileSetAtlasSource_6pq8u")
+
+[node name="MainUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TileView" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/TileView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HBoxContainer/TileView/CenterContainer"]
+layout_mode = 2
+
+[node name="TileMap" type="TileMap" parent="HBoxContainer/TileView/CenterContainer/Control"]
+tile_set = SubResource("TileSet_oixvl")
+rendering_quadrant_size = 1
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 131072, 4, 1, 131072, 4, 2, 131072, 4, 3, 131072, 4, 4, 131072, 4, 5, 196608, 4, 6, 196608, 4, 7, 196608, 4, 8, 196608, 4, 9, 196608, 4, 10, 196608, 4, 11, 196608, 4, 12, 196608, 4, 13, 196608, 4, 14, 196608, 4, 15, 196608, 4)
+script = ExtResource("2_smj5p")
+
+[node name="TileSelection" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MenuBar" type="MenuBar" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+script = ExtResource("3_aw7mf")
+
+[node name="File" type="PopupMenu" parent="MenuBar"]
+mode = 3
+title = "File"
+item_count = 1
+item_0/text = "New"
+item_0/id = 0
+script = ExtResource("3_avpk7")
+
+[node name="NewOptions" type="PopupMenu" parent="MenuBar/File"]
+
+[node name="NewDocumentDialog" type="Window" parent="MenuBar"]
+title = "New Document"
+initial_position = 1
+size = Vector2i(300, 300)
+visible = false
+wrap_controls = true
+exclusive = true
+popup_window = true
+
+[node name="Control" parent="MenuBar/NewDocumentDialog" instance=ExtResource("4_ir1qj")]
+
+[connection signal="id_pressed" from="MenuBar/File" to="MenuBar" method="_on_file_id_pressed"]
+[connection signal="close_requested" from="MenuBar/NewDocumentDialog" to="MenuBar" method="_on_new_document_dialog_close_requested"]
