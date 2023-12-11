@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://hjt5ip8toa7t"]
-
-[sub_resource type="TileSet" id="TileSet_hgwke"]
-
-[node name="Node2D" type="TileMap"]
-tile_set = SubResource("TileSet_hgwke")
-format = 2

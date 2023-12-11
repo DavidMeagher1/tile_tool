@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbr730r7kk0w6"]
+[gd_scene load_steps=6 format=3 uid="uid://cbr730r7kk0w6"]
 
 [ext_resource type="Script" path="res://File.gd" id="3_avpk7"]
 [ext_resource type="Script" path="res://MenuBar.gd" id="3_aw7mf"]
 [ext_resource type="PackedScene" uid="uid://bnwhw2epqkq3i" path="res://tile_viewport.tscn" id="4_2yl5l"]
 [ext_resource type="PackedScene" uid="uid://cqvh2830whl6g" path="res://new_document.tscn" id="4_ir1qj"]
 [ext_resource type="Script" path="res://tile_view_camera.gd" id="5_npo5r"]
-[ext_resource type="Script" path="res://v_view_scroll.gd" id="6_0wy2r"]
 
 [node name="MainUI" type="Control"]
 layout_mode = 3
@@ -100,7 +99,6 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer/HBoxContainer/TileView/PanelContainer2"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -115,25 +113,14 @@ render_target_update_mode = 4
 [node name="tile" parent="VBoxContainer/HBoxContainer/TileView/PanelContainer2/SubViewportContainer/SubViewport" instance=ExtResource("4_2yl5l")]
 unique_name_in_owner = true
 
-[node name="tilecam" type="Camera2D" parent="VBoxContainer/HBoxContainer/TileView/PanelContainer2/SubViewportContainer/SubViewport"]
-unique_name_in_owner = true
+[node name="Camera2D" type="Camera2D" parent="VBoxContainer/HBoxContainer/TileView/PanelContainer2/SubViewportContainer/SubViewport"]
 ignore_rotation = false
 script = ExtResource("5_npo5r")
-zoom_step = Vector2(0.2, 0.2)
-zoom_min = Vector2(0.25, 0.25)
-zoom_max = Vector2(100, 100)
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer/TileView/PanelContainer2/SubViewportContainer/SubViewport/tilecam"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HBoxContainer/TileView/PanelContainer2/SubViewportContainer/SubViewport/Camera2D"]
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1, 1, 1, 0.596078)
-
-[node name="v_view_scroll" type="VScrollBar" parent="VBoxContainer/HBoxContainer/TileView/PanelContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 8
-allow_lesser = true
-script = ExtResource("6_0wy2r")
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/TileView"]
 layout_mode = 2
